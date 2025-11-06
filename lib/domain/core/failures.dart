@@ -2,16 +2,23 @@ sealed class ValueFailure<T> {
   final T failedValue;
 
   const ValueFailure({required this.failedValue});
+
+  @override
+  bool operator ==(Object other) =>
+      (identical(this, other)) ||
+          other is ValueFailure<T> && other.failedValue == failedValue;
+
+
+  @override
+  int get hashCode => failedValue.hashCode;
 }
 
 
-final class Empty<T> extends ValueFailure<T> {
-  Empty({required super.failedValue});
+final class EmptyValue<T> extends ValueFailure<T> {
+  const EmptyValue({required super.failedValue});
 
   @override
-  String toString() {
-    return 'Empty(failedValue: $failedValue';
-  }
+  String toString() => 'EmptyValue(failedValue: $failedValue)';
 }
 
 final class TooLong<T> extends ValueFailure<T> {
@@ -32,8 +39,13 @@ final class TooShort<T> extends ValueFailure<T> {
 
   @override
   String toString() {
-    return 'TooShort(failedValue: $failedValue, max: $min)';
+    return 'TooShort(failedValue: $failedValue, min: $min)';
   }
 }
 
+final class InvalidFormat<T> extends ValueFailure<T> {
+  const InvalidFormat({required super.failedValue});
 
+  @override
+  String toString() => 'InvalidFormat(failedValue: $failedValue)';
+}
