@@ -28,16 +28,16 @@ final class InvalidFormat<T> extends ValueFailure<T> {
   String toString() => 'InvalidFormat(failedValue: $failedValue)';
 }
 
-// final class TooLong<T> extends ValueFailure<T> {
-//   final int max;
-//
-//   const TooLong({required super.failedValue, required this.max});
-//
-//   @override
-//   String toString() {
-//     return 'TooLong(failedValue: $failedValue, max: $max)';
-//   }
-// }
+final class TooLong<T> extends ValueFailure<T> {
+  final int max;
+
+  const TooLong({required super.failedValue, required this.max});
+
+  @override
+  String toString() {
+    return 'TooLong(failedValue: $failedValue, max: $max)';
+  }
+}
 //
 // final class TooShort<T> extends ValueFailure<T> {
 //   final int min;
