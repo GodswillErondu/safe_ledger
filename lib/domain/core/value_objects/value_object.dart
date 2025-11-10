@@ -17,7 +17,6 @@ abstract class ValueObject<T> {
           (value) => value,
     );
   }
-
   Either<ValueFailure<T>, Unit> get failureOrUnit =>
       value.fold((failure) => left(failure), (_) => right(unit));
 
