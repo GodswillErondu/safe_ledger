@@ -21,31 +21,32 @@ final class EmptyValue<T> extends ValueFailure<T> {
   String toString() => 'EmptyValue(failedValue: $failedValue)';
 }
 
-final class TooLong<T> extends ValueFailure<T> {
-  final int max;
-
-  const TooLong({required super.failedValue, required this.max});
-
-  @override
-  String toString() {
-    return 'TooLong(failedValue: $failedValue, max: $max)';
-  }
-}
-
-final class TooShort<T> extends ValueFailure<T> {
-  final int min;
-
-  const TooShort({required super.failedValue, required this.min});
-
-  @override
-  String toString() {
-    return 'TooShort(failedValue: $failedValue, min: $min)';
-  }
-}
-
 final class InvalidFormat<T> extends ValueFailure<T> {
   const InvalidFormat({required super.failedValue});
 
   @override
   String toString() => 'InvalidFormat(failedValue: $failedValue)';
 }
+
+// final class TooLong<T> extends ValueFailure<T> {
+//   final int max;
+//
+//   const TooLong({required super.failedValue, required this.max});
+//
+//   @override
+//   String toString() {
+//     return 'TooLong(failedValue: $failedValue, max: $max)';
+//   }
+// }
+//
+// final class TooShort<T> extends ValueFailure<T> {
+//   final int min;
+//
+//   const TooShort({required super.failedValue, required this.min});
+//
+//   @override
+//   String toString() {
+//     return 'TooShort(failedValue: $failedValue, min: $min)';
+//   }
+// }
+
