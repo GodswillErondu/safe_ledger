@@ -18,6 +18,9 @@ abstract class ValueObject<T> {
     );
   }
 
+  Either<ValueFailure<T>, Unit> get failureOrUnit =>
+      value.fold((failure) => left(failure), (_) => right(unit));
+
   @override
   bool operator ==(Object other) =>
     (identical(this, other)) ||
